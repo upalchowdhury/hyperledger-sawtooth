@@ -29,10 +29,21 @@ If you would like to restrict another Transaction Family modifying the values ma
 
 
 `Transaction creation`
-    • Transaction Header Bytes
-    • Header signature 
-    • payload bytes
+        • Transaction Header Bytes
+        • Header signature 
+        • payload bytes
 Each transaction is an array element in a batch of transactions
 
 All sawtooth signaturs including client-signed transaction and batches use ECDSA curve secp256k1.
+
+`Ledger Sync`
+    The state is extracted from the ledger ( leafs of merkle tree) and used for performing queries to data. Using root hash. Data subscribers can be used to create ledger sync.
+
+• Sawtooth validators uses TCP connection and port 8800 to communicate with other nodes.
+
+
+• After Transaction formation is done in batch, block formation in done in validator node and includes the below info,
+            • Block, BatchID, BlockNumber, Consensus, Current hash, prev hash, timestamp, validator public key
+
+
 
